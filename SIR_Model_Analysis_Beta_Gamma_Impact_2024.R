@@ -596,7 +596,7 @@ ggplot(mean_infected, aes(x = time, y = mean_infected)) +
   geom_errorbar(aes(ymin = mean_infected - sd_infected, 
                     ymax = mean_infected + sd_infected),
                 width = 0.1, color = "black") +  # Error bars
-  labs(title = paste("SIR Model Simulation (Beta =", beta, ", Gamma =", gamma, ")"),
+  labs(title = paste("SIR Model Simulation (Beta = 0.1 <40yo, 0.3 >40yo, Gamma =", gamma, ")"),
        y = "Mean Infected Individuals",
        x = "Time Steps") +
   #ylim(0, 50) +  # Set x-axis limits
@@ -607,7 +607,7 @@ ggplot(mean_infected, aes(x = time, y = mean_infected)) +
 ggplot(combined_results, aes(x = time, y = infected)) +
   geom_line(linewidth = 1, color = "red") +  # Plot the infected individuals over time
   facet_wrap(~simulation, scales = "free_y") +  # Create a facet for each simulation
-  labs(title = "SIR Model Simulation Results by Simulation",
+  labs(title = "SIR Model Simulation Results by Simulation (Beta = 0.1 <40yo, 0.3 >40yo, Gamma =", gamma, ")",
        y = "Infected Individuals",
        x = "Time Steps") +
   theme_minimal() +
